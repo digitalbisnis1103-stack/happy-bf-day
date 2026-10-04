@@ -1,0 +1,883 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>Happy BF Day ♡</title>
+
+<style>
+:root {
+  --blue: #c8e5fa;
+  --blue-light: #e4f2ff;
+  --blue-dark: #5ba8df;
+  --ink: #35536b;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: var(--ink);
+}
+
+body {
+  min-height: 100svh;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 14px;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+body::before {
+  width: 260px;
+  height: 260px;
+  top: -125px;
+  left: -100px;
+  background: #eaf6ff;
+}
+
+body::after {
+  width: 300px;
+  height: 300px;
+  bottom: -160px;
+  right: -130px;
+  background: #f2f8ff;
+}
+
+#floaties {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floaty {
+  position: absolute;
+  bottom: -35px;
+  color: #a9d5f3;
+  animation: rise linear forwards;
+  opacity: .7;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+.app {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 360px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  display: none;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 20px 23px;
+  border-radius: 20px;
+  background: linear-gradient(155deg, #e4f2ff, #c8e5fa);
+  border: 1px solid #b9daf2;
+  box-shadow: 0 8px 24px rgba(99,157,199,.13);
+  animation: show .32s ease both;
+}
+
+.card.active { display: flex; }
+
+@keyframes show {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: clamp(22px, 6vw, 27px);
+  line-height: 1.25;
+  margin: 5px 0 12px;
+  color: #315875;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 1.35;
+  margin: 6px 0 12px;
+  color: #315875;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 5px 0;
+  color: #526f86;
+}
+
+.sub {
+  font-size: 13px;
+  color: #71889a;
+}
+
+.sticker-slot {
+  width: 145px;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 13px;
+}
+
+.sticker-slot img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.sticker-placeholder {
+  font-size: 12px;
+  color: #7397b3;
+  border: 1px dashed #8dbfe3;
+  border-radius: 15px;
+  padding: 12px;
+  background: rgba(255,255,255,.4);
+}
+
+.btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 25px;
+  min-width: 0;
+  margin-top: 15px;
+  background: #5ba8df;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(76,151,205,.2);
+  transition: filter .15s, transform .2s;
+}
+
+.btn:hover { filter: brightness(1.05); }
+
+.btn.light {
+  background: #fff;
+  color: #47789b;
+  border: 1px solid #c1dff4;
+  box-shadow: none;
+}
+
+.photo {
+  width: min(100%, 250px);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border: 4px solid #fff;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(67,113,148,.12);
+}
+
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7fbff;
+  color: #7397b3;
+  font-size: 12px;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  margin-top: 13px;
+}
+
+.actions .btn {
+  width: min(100%, 240px);
+  margin: 0;
+}
+
+/* HALAMAN PERTANYAAN */
+
+#page3 {
+  min-height: 365px;
+  padding: 25px 20px;
+  background: linear-gradient(155deg, #e4f2ff, #c8e5fa);
+}
+
+#page3 h1 { margin-bottom: 15px; }
+
+#page3 .sticker-slot {
+  height: 130px;
+  width: 145px;
+  margin-bottom: 12px;
+}
+
+#loveMessage {
+  font-size: 13px;
+  font-weight: bold;
+  min-height: 22px;
+  margin: 3px 0 18px;
+  color: #47789b;
+}
+
+#page3 .actions {
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px;
+  min-height: 70px;
+}
+
+#page3 .btn {
+  flex: 1;
+  width: auto;
+  min-height: 64px;
+  border-radius: 18px;
+  font-size: 22px;
+  border: 2px solid #a6d5f5;
+  margin: 0;
+}
+
+#page3 .btn.light {
+  background: #fff;
+  color: #47789b;
+  border: 1px solid #c7e1f5;
+}
+
+/* PASSWORD */
+
+.pin {
+  display: flex;
+  gap: 7px;
+  margin: 15px 0 4px;
+}
+
+.pin span {
+  height: 32px;
+  width: 32px;
+  border: 1.5px solid #a9cfea;
+  background: #fff;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  color: #5798c8;
+}
+
+.keypad {
+  width: min(100%, 265px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  margin-top: 13px;
+}
+
+.key {
+  border: 0;
+  border-radius: 11px;
+  background: #fff;
+  color: #42647e;
+  font-size: 19px;
+  font-weight: 700;
+  padding: 12px 0;
+  box-shadow: 0 2px 7px rgba(76,126,164,.08);
+  cursor: pointer;
+}
+
+.error {
+  min-height: 18px;
+  color: #b96589;
+  font-size: 11px;
+}
+
+.letter {
+  width: 100%;
+  text-align: left;
+  background: rgba(255,255,255,.48);
+  border-radius: 13px;
+  padding: 15px;
+  max-height: 270px;
+  overflow: auto;
+  line-height: 1.8;
+}
+
+.letter p {
+  font-size: 13px;
+  color: #405d73;
+  margin: 0 0 12px;
+}
+
+.signature {
+  text-align: right;
+  font-weight: bold;
+  color: #315875;
+}
+
+.pause {
+  position: fixed;
+  z-index: 4;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #68afe3;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tiny {
+  font-size: 10px;
+  color: #8299aa;
+  margin-top: 10px;
+}
+
+/* CONFETTI */
+
+.confetti {
+  position: fixed;
+  top: -15px;
+  width: 8px;
+  height: 11px;
+  z-index: 9998;
+  pointer-events: none;
+  animation: fall 2.7s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(600deg);
+    opacity: .15;
+  }
+}
+
+.click-burst {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: visible;
+}
+
+.click-particle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform, opacity;
+  animation: clickBurst .85s cubic-bezier(.12,.7,.25,1) forwards;
+}
+
+.confetti-piece {
+  width: 7px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.heart-piece {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.spark-piece {
+  font-size: 16px;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 7px #75bce9;
+}
+
+@keyframes clickBurst {
+  0% {
+    transform: translate(0,0) scale(.35) rotate(0);
+    opacity: 1;
+  }
+  65% { opacity: 1; }
+  100% {
+    transform: translate(var(--dx),var(--dy)) scale(.9) rotate(var(--rot));
+    opacity: 0;
+  }
+}
+
+button { -webkit-tap-highlight-color: transparent; }
+
+button.tap-pop { animation: tapPop .22s ease-out; }
+
+@keyframes tapPop {
+  0% { scale: 1; }
+  45% { scale: .94; }
+  100% { scale: 1; }
+}
+
+@media (max-height: 690px) {
+  body { padding: 10px; }
+  .card { padding: 19px 17px; }
+  .sticker-slot {
+    height: 90px;
+    width: 115px;
+    margin-bottom: 8px;
+  }
+  .letter { max-height: 220px; }
+  #page3 { min-height: 340px; }
+  #page3 .sticker-slot { height: 105px; }
+}
+
+
+#page6 {
+  display: none;
+  width: 100%;
+  min-height: 580px;
+  padding: 30px 20px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#page6.active {
+  display: flex;
+}
+
+#page6 .letter {
+  width: 100%;
+  min-height: 300px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* PAKSA TOMBOL KE TENGAH */
+#page6 > button.btn {
+  display: block;
+  width: fit-content;
+  min-width: 155px;
+  margin: 24px auto 0 !important;
+  align-self: center;
+  flex: 0 0 auto;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="floaties"></div>
+
+<button class="pause" id="musicToggle"
+  title="Putar/jeda musik"
+  aria-label="Putar atau jeda musik">♫</button>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<main class="app">
+
+  <!-- PAGE 1: HOMEPAGE -->
+  <section class="card active" id="page1">
+    <div class="sticker-slot">
+      <img src="icon1.webp" alt="Stiker homepage"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="sticker-placeholder" style="display:none">
+        Tambahkan stiker: <b>stiker-home.png</b>
+      </div>
+    </div>
+
+    <h1>happy bf dayy sayanggg</h1>
+    <p>aku ada sesuatu buat kamuu...</p>
+    <p class="sub">click to find out ♡</p>
+
+    <button class="btn" onclick="go(2)">tap ♥</button>
+  </section>
+
+  <!-- PAGE 2: FOTO -->
+  <section class="card" id="page2">
+    <img class="photo" src="foto1.jpg" alt="Foto kalian"
+      onerror="this.style.display='none';document.getElementById('photoFallback').style.display='flex'">
+
+    <div class="photo photo-placeholder" id="photoFallback"
+      style="display:none">
+      Tambahkan foto: foto-kalian.jpg
+    </div>
+
+    <h2>you are special in soo...</h2>
+    <h2>manyyy manyyy amazing ways ♡</h2>
+    <p style="margin-top:15px">ily sayangg &lt;3</p>
+
+    <button class="btn" onclick="go(3)">next ➜</button>
+  </section>
+
+  <!-- PAGE 3: YES OR NO -->
+  <section class="card" id="page3">
+    <h1>do u love me..??</h1>
+
+    <div class="sticker-slot">
+      <img src="icon2.webp" alt="Stiker pertanyaan"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="sticker-placeholder" style="display:none">
+        Tambahkan stiker: <b>stiker-question.png</b>
+      </div>
+    </div>
+
+    <p id="loveMessage">oke km hrs pencet iya, ak maksa.</p>
+
+    <div class="actions">
+      <button class="btn" id="yesBtn"
+        onclick="go(4);celebrate()">YES</button>
+
+      <button class="btn light" id="noBtn"
+        onclick="showNo()">NO</button>
+    </div>
+  </section>
+
+  <!-- PAGE 4: HAPPY -->
+  <section class="card" id="page4">
+    <h1>YEYYY! ILY SO MUCH MY LOVEE</h1>
+
+    <div class="sticker-slot">
+      <img src="icon3.webp" alt="Stiker senang"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="sticker-placeholder" style="display:none">
+        Tambahkan stiker: <b>stiker-happy.png</b>
+      </div>
+    </div>
+
+    <p>you just made me the happiest person!</p>
+    <p>♡ ♡ ♡</p>
+
+    <button class="btn" onclick="go(5)">next ➜</button>
+  </section>
+
+  <!-- PAGE 5: PASSWORD -->
+  <section class="card" id="page5">
+    <h2>i have a message for u</h2>
+    <p class="sub">Type the password to continue<br>
+      (hint: hari spesial kita)</p>
+
+    <div class="sticker-slot" style="height:75px;width:90px">
+      <img src="icon5.webp" alt="Stiker amplop"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="sticker-placeholder" style="display:none">
+        stiker-envelope.png
+      </div>
+    </div>
+
+    <div class="pin" id="pin">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="error" id="pinError"></div>
+
+    <div class="keypad">
+      <button class="key" onclick="digit('1')">1</button>
+      <button class="key" onclick="digit('2')">2</button>
+      <button class="key" onclick="digit('3')">3</button>
+
+      <button class="key" onclick="digit('4')">4</button>
+      <button class="key" onclick="digit('5')">5</button>
+      <button class="key" onclick="digit('6')">6</button>
+
+      <button class="key" onclick="digit('7')">7</button>
+      <button class="key" onclick="digit('8')">8</button>
+      <button class="key" onclick="digit('9')">9</button>
+
+      <button class="key" onclick="clearPin()">⌫</button>
+      <button class="key" onclick="digit('0')">0</button>
+      <button class="key" onclick="openLetter()"
+        style="background:#5ba8df;color:white">OPEN</button>
+    </div>
+
+    <p class="tiny">♡ made with love, just for you ♡</p>
+  </section>
+
+  <!-- PAGE 6: SECRET LETTER -->
+  <section class="card" id="page6">
+    <h1>to my amazing bf</h1>
+
+    <div class="letter">
+      <p>
+aku merasa beruntung banget bisa dipertemukan dengan cowo sepertimu, sosok yang penyabar, dewasa, dan selalu tahu cara memperlakukan aku dengan sangat baik. bersamamu aku merasa dihargai seutuhnya sebagai seorang pasangan. I love always sayangku, perasaan cintaku ke kamu gak akan pernah berkurang sedikitpun dan bakal terus menetap di sini. makanya di tengah rasa bahagiaku ini, aku cuma mau minta satu hal dari kamu jangan pernah berubah sampai kapanpun yaa? tetaplah jadi orang yang sama yang selalu jadi tempat ternyaman buat aku pulang.
+i loveeeeeeeeeeeeeeeee youuuuuuuuuuuu sayanggggggggggg
+      </p>
+
+    
+
+    <button class="btn" onclick="go(1)">↻ read again</button>
+  </section>
+
+</main>
+
+<script>
+const cards = [...document.querySelectorAll(".card")];
+
+function go(n) {
+  cards.forEach(card => card.classList.remove("active"));
+  document.getElementById("page" + n).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* TOMBOL NO: PESAN BERUBAH, YES MEMBESAR */
+
+let noCount = 0;
+
+const noMessages = [
+  "km salah pencet kahh??",
+  "pls pencet iyaa ihh",
+  "pls sayanggg",
+  "kesempatan terakhir!",
+  "oke km hrs pencet iya, ak maksa."
+];
+
+function showNo() {
+  noCount++;
+
+  document.getElementById("loveMessage").textContent =
+    noMessages[Math.min(noCount - 1, noMessages.length - 1)];
+
+  const yes = document.getElementById("yesBtn");
+  const no = document.getElementById("noBtn");
+
+  yes.style.transform =
+    "scale(" + [1, 1.08, 1.16, 1.25, 1.35][Math.min(noCount, 4)] + ")";
+
+  yes.style.fontSize = (22 + Math.min(noCount, 4) * 2) + "px";
+
+  if (noCount >= 5) {
+    no.style.display = "none";
+  } else {
+    no.style.transform =
+      "scale(" + [1, .86, .72, .58, .4][noCount] + ")";
+
+    no.style.opacity = String(1 - noCount * .16);
+  }
+}
+
+/* CONFETTI BESAR SAAT MEMILIH YES */
+
+function celebrate() {
+  for (let i = 0; i < 55; i++) {
+    const el = document.createElement("i");
+    el.className = "confetti";
+
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDelay = Math.random() * .6 + "s";
+
+    el.style.background = [
+      "#77bced",
+      "#d4ebfc",
+      "#fff",
+      "#a6d8fa",
+      "#f6c9e2"
+    ][Math.floor(Math.random() * 5)];
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 3500);
+  }
+}
+
+/* PASSWORD: 12252011 */
+
+let pinValue = "";
+const passwordBenar = "12252011";
+
+function digit(n) {
+  if (pinValue.length >= 8) return;
+
+  pinValue += n;
+  updatePin();
+
+  document.getElementById("pinError").textContent = "";
+}
+
+function updatePin() {
+  document.querySelectorAll("#pin span").forEach((el, i) => {
+    el.textContent = pinValue[i] ? "●" : "";
+  });
+}
+
+function clearPin() {
+  pinValue = pinValue.slice(0, -1);
+  updatePin();
+
+  document.getElementById("pinError").textContent = "";
+}
+
+function openLetter() {
+  if (pinValue === passwordBenar) {
+    pinValue = "";
+    updatePin();
+    go(6);
+    celebrate();
+  } else {
+    document.getElementById("pinError").textContent =
+      "Password-nya belum tepat, coba lagi yaa ♡";
+
+    pinValue = "";
+    updatePin();
+  }
+}
+
+/* ANIMASI HATI DAN BINTANG MELAYANG */
+
+const floaties = document.getElementById("floaties");
+
+function makeFloaty() {
+  const el = document.createElement("span");
+  el.className = "floaty";
+
+  el.textContent = ["♡", "✦", "♥", "✧"][
+    Math.floor(Math.random() * 4)
+  ];
+
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.fontSize = (11 + Math.random() * 12) + "px";
+  el.style.animationDuration = (8 + Math.random() * 6) + "s";
+
+  floaties.appendChild(el);
+
+  setTimeout(() => el.remove(), 15000);
+}
+
+setInterval(makeFloaty, 1000);
+
+/* MUSIK OTOMATIS */
+
+const music = document.getElementById("bgMusic");
+const toggle = document.getElementById("musicToggle");
+
+let playing = false;
+
+async function startMusic() {
+  try {
+    await music.play();
+    playing = true;
+    toggle.textContent = "Ⅱ";
+  } catch (e) {
+    playing = false;
+    toggle.textContent = "♫";
+  }
+}
+
+window.addEventListener("load", startMusic);
+
+document.addEventListener("pointerdown", function () {
+  if (!playing) startMusic();
+});
+
+toggle.addEventListener("click", async () => {
+  if (playing) {
+    music.pause();
+    playing = false;
+    toggle.textContent = "♫";
+  } else {
+    await startMusic();
+  }
+});
+
+/* EFEK PARTIKEL SETIAP TOMBOL DITEKAN */
+
+function burstAt(x, y) {
+  const wrap = document.createElement("span");
+  wrap.className = "click-burst";
+
+  wrap.style.left = x + "px";
+  wrap.style.top = y + "px";
+
+  document.body.appendChild(wrap);
+
+  const colors = [
+    "#69afe3",
+    "#a9d8fa",
+    "#d7efff",
+    "#ffffff",
+    "#8dc8f0",
+    "#f6c9e2"
+  ];
+
+  for (let i = 0; i < 24; i++) {
+    const el = document.createElement("i");
+
+    const angle =
+      (Math.PI * 2 * i / 24) + (Math.random() * .22);
+
+    const distance = 35 + Math.random() * 62;
+
+    if (i % 6 === 0) {
+      el.className = "click-particle heart-piece";
+      el.textContent = "♥";
+    } else if (i % 5 === 0) {
+      el.className = "click-particle spark-piece";
+      el.textContent = "✦";
+    } else {
+      el.className = "click-particle confetti-piece";
+
+      el.style.background =
+        colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    el.style.setProperty(
+      "--dx",
+      Math.cos(angle) * distance + "px"
+    );
+
+    el.style.setProperty(
+      "--dy",
+      (Math.sin(angle) * distance - 12) + "px"
+    );
+
+    el.style.setProperty(
+      "--rot",
+      (Math.random() * 520 - 260) + "deg"
+    );
+
+    el.style.animationDelay = Math.random() * .09 + "s";
+
+    wrap.appendChild(el);
+  }
+
+  setTimeout(() => wrap.remove(), 1100);
+}
+
+document.addEventListener("click", function (event) {
+  const button = event.target.closest("button");
+
+  if (!button || button.disabled) return;
+
+  const rect = button.getBoundingClientRect();
+
+  burstAt(
+    event.clientX || (rect.left + rect.width / 2),
+    event.clientY || (rect.top + rect.height / 2)
+  );
+});
+</script>
+
+</body>
+</html>
